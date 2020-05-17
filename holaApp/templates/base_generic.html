@@ -33,6 +33,8 @@
                         {% if perms.staff.can_marked_returned %}
                             <li>Staff</li>
                             <li><a href="{% url 'all-borrowed' %}"> All Borrowed </a></li>
+                            <li><a href="{% url 'author_create' %}"> Nuevo Autor </a></li>
+                            <li><a href="{% url 'book_create' %}"> Nuevo Libro </a></li>
                         {% endif %}
                     {% else %}
                         <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
