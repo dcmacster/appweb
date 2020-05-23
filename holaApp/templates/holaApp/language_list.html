@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Language List</h1>
+
+    {% if perms.staff.can_marked_returned %}
+        <a href="{% url 'language_create' %}"> Nuevo Lenguage </a>
+    {% endif %}
+
+    {% if language_list %}
+
+
+        {% for language in language_list %}
+        <li>
+            {{ language.name }}
+            {% if perms.staff.can_marked_returned %}
+                <a href="{% url 'language_update' language.pk %}">editar</a> <a href="{% url 'language_delete' language.pk %}">eliminar</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+        <p>There are no author in the library.</p>
+    {% endif %}
+{% endblock %}

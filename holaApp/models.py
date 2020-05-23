@@ -11,7 +11,14 @@ class Genre(models.Model):
     Modelo que representa un género literario (p. ej. ciencia ficción, poesía, etc.).
     """
     name = models.CharField(max_length=200, help_text="Ingrese el nombre del género (p. ej. Ciencia Ficción, Poesía Francesa etc.)")
-    
+
+    def get_absolute_url(self):
+        """
+        Retorna la url para acceder a una instancia particular de un autor.
+        """
+        return reverse('genres')
+
+
     def __str__(self):
         """
         Cadena que representa a la instancia particular del modelo (p. ej. en el sitio de Administración)
@@ -22,6 +29,12 @@ class Language(models.Model):
     """Model representing a Language (e.g. English, French, Japanese, etc.)"""
     name = models.CharField(max_length=200,
                             help_text="Enter the book's natural language (e.g. English, French, Japanese etc.)")
+
+    def get_absolute_url(self):
+        """
+        Retorna la url para acceder a una instancia particular de un autor.
+        """
+        return reverse('languages')
 
     def __str__(self):
         """String for representing the Model object (in Admin site etc.)"""

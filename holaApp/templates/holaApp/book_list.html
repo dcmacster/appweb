@@ -1,8 +1,11 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>Book List</h1>
-
+    <h1>Book List</h1> 
+    
+    {% if perms.staff.can_marked_returned %}
+        <a href="{% url 'book_create' %}"> Nuevo Libro </a>
+    {% endif %}
     {% if book_list %}
     <ul>
 

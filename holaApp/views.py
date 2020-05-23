@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Book, Author, BookInstance, Genre
+from .models import Book, Author, BookInstance, Genre, Language
 from django.views import generic
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -107,6 +107,25 @@ class GenreUpdate(UpdateView):
 class GenreDelete(DeleteView):
     model = Genre
     success_url = reverse_lazy('genres') 
+
+class LanguageListView(LoginRequiredMixin, generic.ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
+    model = Language
+    paginate_by = 10
+
+class LanguageCreate(CreateView):
+    model = Language
+    fields = '__all__'
+    #initial={'date_of_death':'05/01/2018',}
+
+class LanguageUpdate(UpdateView):
+    model = Language
+    fields = '__all__'
+
+class LanguageDelete(DeleteView):
+    model = Language
+    success_url = reverse_lazy('languages') 
 
 
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):

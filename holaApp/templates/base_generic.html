@@ -34,8 +34,7 @@
                             <li>Staff</li>
                             <li><a href="{% url 'all-borrowed' %}"> All Borrowed </a></li>
                             <li><a href="{% url 'genres' %}">All genres</a></li>
-                            <li><a href="{% url 'author_create' %}"> Nuevo Autor </a></li>
-                            <li><a href="{% url 'book_create' %}"> Nuevo Libro </a></li>
+                            <li><a href="{% url 'languages' %}">All languages</a></li>
                         {% endif %}
                     {% else %}
                         <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>

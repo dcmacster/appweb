@@ -21,5 +21,9 @@ urlpatterns = [
     url(r'^genre/create/$', views.GenreCreate.as_view(), name='genre_create'),
     url(r'^genre/(?P<pk>\d+)/update/$',views.GenreUpdate.as_view(), name='genre_update'),
     url(r'^genre/(?P<pk>\d+)/delete/$',views.GenreDelete.as_view(), name='genre_delete'),
+    url(r'^languages/$', views.LanguageListView.as_view(), name='languages'),
+    url(r'^language/create/$', views.LanguageCreate.as_view(), name='language_create'),
+    url(r'^language/(?P<pk>\d+)/update/$', views.LanguageUpdate.as_view(), name='language_update'),
+    url(r'^language/(?P<pk>\d+)/delete/$', views.LanguageDelete.as_view(), name='language_delete'),
 
 ]
