@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Genre List</h1>
+
+    {% if perms.staff.can_marked_returned %}
+        <a href="{% url 'genre_create' %}"> Nuevo Genero </a>
+    {% endif %}
+
+    {% if genre_list %}
+
+
+        {% for genre in genre_list %}
+        <li>
+            {{ genre.name }}
+            {% if perms.staff.can_marked_returned %}
+                <a href="{% url 'genre_update' genre.pk %}">editar</a> <a href="{% url 'genre_delete' genre.pk %}">eliminar</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+
+    </ul>
+    {% else %}
+        <p>There are no author in the library.</p>
+    {% endif %}
+{% endblock %}
