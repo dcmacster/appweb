@@ -89,6 +89,25 @@ class AuthorDelete(DeleteView):
     success_url = reverse_lazy('authors') 
  #esto es una prueba
 
+class GenreListView(LoginRequiredMixin, generic.ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'redirect_to'
+    model = Genre
+    paginate_by = 10
+
+class GenreCreate(CreateView):
+    model = Genre
+    fields = '__all__'
+    #initial={'date_of_death':'05/01/2018',}
+
+class GenreUpdate(UpdateView):
+    model = Genre
+    fields = '__all__'
+
+class GenreDelete(DeleteView):
+    model = Genre
+    success_url = reverse_lazy('genres') 
+
 
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     """

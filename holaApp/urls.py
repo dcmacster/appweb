@@ -17,5 +17,9 @@ urlpatterns = [
     url(r'^book/create/$', views.BookCreate.as_view(), name='book_create'),
     url(r'^book/(?P<pk>\d+)/update/$', views.BookUpdate.as_view(), name='book_update'),
     url(r'^book/(?P<pk>\d+)/delete/$', views.BookDelete.as_view(), name='book_delete'),
+    url(r'^genres/$', views.GenreListView.as_view(), name='genres'),
+    url(r'^genre/create/$', views.GenreCreate.as_view(), name='genre_create'),
+    url(r'^genre/(?P<pk>\d+)/update/$',views.GenreUpdate.as_view(), name='genre_update'),
+    url(r'^genre/(?P<pk>\d+)/delete/$',views.GenreDelete.as_view(), name='genre_delete'),
 
 ]
